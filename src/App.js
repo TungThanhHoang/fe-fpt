@@ -42,11 +42,24 @@ function App() {
     if (findItem) {
       const deleteItem = pin?.filter(item => item.id !== data.id);
       setPin(deleteItem);
-      setMailBox([mailBox?.find(item => item.id !== data.id), { ...findItem, isPin: false }]);
+      // const dataItem = mailBox?.find(item => item.id === data.id && { ...item, isPin: false });
+      setMailBox(prevState => {
+        return prevState.map(item => item.id === data.id ? { ...item, isPin: false } : item);
+      });
+      // setMailBox([mailBox?.find(item => item.id !== data.id), { ...findItem, isPin: false }]);
     } else {
       const findMail = mailBox.filter(item => item.id !== data.id);
-      setPin([...pin, { ...data, isPin: true }]);
+      setPin([{ ...data, isPin: true }, ...pin]);
       setMailBox([{ ...data, isPin: true }, ...findMail]);
+      // setMailBox(prevState => {
+      //   const newState = prevState.map(item => {
+      //     if (item.id === data.id) {
+      //       return { ...item, isPin: true }
+      //     }
+      //     return item;
+      //   })
+      //   return newState;
+      // });
     }
   }
 
@@ -56,8 +69,10 @@ function App() {
   }
 
   const handleSortMail = () => {
-    return mailBox.sort((a, b) => Number(a.isPin) !== Number(b.isPin) ? Number(a.isPin) - Number(b.pin) : b.id - a.id);
+    return mailBox.sort((a, b) => Number(a.isPin) !== Number(b.isPin) ? Number(a.isPin) - Number(b.pin) : new Date(b.createdAt) - new Date(a.createdAt));
   }
+
+  console.log(handleSortMail());
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -69,7 +84,7 @@ function App() {
       setError({});
       setToast(true);
       setTimeout(() => {
-        setMailBox([formData, ...mailBox]);
+        setMailBox([{ ...formData, createdAt: new Date() }, ...mailBox]);
         setToast(false);
         setFormData({ to: "", subject: "", content: "" })
       }, 1000)
