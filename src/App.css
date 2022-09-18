@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+.wapper-email {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wapper-email h5 {
+    margin-top: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.border-check-flag {
+    border: 1px solid red !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-mail__content {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    padding: 6px;
+    margin: 6px 0;
+    cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.card-mail__content:hover {
+    opacity: .8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-mail__content:nth-child(1) {
+    margin-top: 0;
+}
+
+.card-mail__content:nth-last-child(1) {
+    margin-bottom: 0;
+}
+
+.card-email__border {
+    border: 1px solid #eee;
+}
+
+.card-mail-detail__border {
+    border: 1px solid #eee;
+}
+
+.mail-box {
+    position: relative;
+}
+
+.card-email__top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-email__top--title {
+    font-weight: bold;
+}
+
+.group-button-email {
+    display: flex;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 0;
+}
+
+.group-button-email button {
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #444;
+}
+
+.button-check-flag {
+    background-color: green !important;
+}
+
+.group-button-email button:hover {
+    opacity: .6;
+}
+
+.group-button-email button:nth-child(2) {
+    margin: 0 8px;
+}
+
+.card-email-desc {
+    margin: 10px 0 0;
+    width: 350px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-mail-detail {
+    grid-column: 2 / 4;
+}
+
+.card-mail-detail__content {
+    padding: 6px;
+}
+
+.main-detail-none {
+    padding: 10px 4px 122px 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .wapper-email {
+        display: block;
+    }
+}
+
+
+/* Notification */
+
+.notification-success span {
+    background-color: #fff;
+    padding: 8px 25px;
+    border-radius: 4px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 4px 27px 0px rgba(0, 0, 0, 0.1);
 }

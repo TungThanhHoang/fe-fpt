@@ -1,0 +1,17 @@
+{
+    "data": [{
+            "id": 1,
+            "to": "thanhhang@gmail.com",
+            "subject": "Trung Thu rằm tháng 9 diễn ra tại khu C tòa nhà FPT",
+            "content": "ipsum dolor sit amet consectetur adipisicing elit. Animi laborum in tenetur! Rerum necessitatibus veritatis eius",
+            "isPin": false
+        },
+        {
+            "id": 2,
+            "to": "tinhnghi@gmail.com",
+            "subject": "[Hot] Sinh nhật FPT sắp diễn ra vào ngày 13/9/2022",
+            "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi laborum in tenetur! Rerum necessitatibus veritatis eius",
+            "isPin": false
+        }
+    ]
+}
