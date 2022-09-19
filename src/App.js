@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
 
   const [mailBox, setMailBox] = useState(dataMail.data);
-  const [formData, setFormData] = useState({ id: uuidv4(), to: "", subject: "", content: "" });
+  const [formData, setFormData] = useState({ to: "", subject: "", content: "" });
   const [toast, setToast] = useState(false);
   const [error, setError] = useState({});
   const [contentMail, setContentMail] = useState(null);
@@ -70,7 +70,7 @@ function App() {
       setError({});
       setToast(true);
       setTimeout(() => {
-        setMailBox([{ ...formData, createdAt: new Date() }, ...mailBox]);
+        setMailBox([{ ...formData, createdAt: new Date(), id: uuidv4() }, ...mailBox]);
         setToast(false);
         setFormData({ to: "", subject: "", content: "" })
       }, 1000)
