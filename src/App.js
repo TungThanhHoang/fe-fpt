@@ -42,24 +42,13 @@ function App() {
     if (findItem) {
       const deleteItem = pin?.filter(item => item.id !== data.id);
       setPin(deleteItem);
-      // const dataItem = mailBox?.find(item => item.id === data.id && { ...item, isPin: false });
       setMailBox(prevState => {
         return prevState.map(item => item.id === data.id ? { ...item, isPin: false } : item);
       });
-      // setMailBox([mailBox?.find(item => item.id !== data.id), { ...findItem, isPin: false }]);
     } else {
       const findMail = mailBox.filter(item => item.id !== data.id);
       setPin([{ ...data, isPin: true }, ...pin]);
       setMailBox([{ ...data, isPin: true }, ...findMail]);
-      // setMailBox(prevState => {
-      //   const newState = prevState.map(item => {
-      //     if (item.id === data.id) {
-      //       return { ...item, isPin: true }
-      //     }
-      //     return item;
-      //   })
-      //   return newState;
-      // });
     }
   }
 
@@ -72,12 +61,9 @@ function App() {
     return mailBox.sort((a, b) => Number(a.isPin) !== Number(b.isPin) ? Number(a.isPin) - Number(b.pin) : new Date(b.createdAt) - new Date(a.createdAt));
   }
 
-  console.log(handleSortMail());
-
   const submitForm = (e) => {
     e.preventDefault();
     const errors = Validate(formData);
-    console.log(errors)
     if (Object.keys(errors).length > 0) {
       setError(errors);
     } else {
